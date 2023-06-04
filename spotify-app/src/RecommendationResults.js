@@ -1,8 +1,8 @@
-import React from 'react'
+import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {useEffect, useState} from 'react';
 
-// export default function TrackSearchResult({track, chooseTrack}){
+// export default function RecommendationResults({track, chooseTrack}){
 //   function handlePlay() {
 //     chooseTrack(track)
 //   }
@@ -21,7 +21,7 @@ import {useEffect, useState} from 'react';
 //   )
 // }
 
-export default function TrackSearchResult({track, chooseTrack}) {
+export default function RecommendationResults({track, chooseTrack}) {
   function handlePlay() {
     chooseTrack(track)
   }
@@ -65,14 +65,15 @@ export default function TrackSearchResult({track, chooseTrack}) {
             }
           }
         >
-          {track.title} 
-          <div  style={
+          {track.title}
+          <div style={
             {
               fontSize: '10px',
             }
           }>
           {track.artist}  
-          </div> 
+          </div>
+          
         </div>
       </div>
   )
