@@ -110,16 +110,7 @@ export default function Home({accessToken, getTrackUri}){
       } else {
         setTempTimePeriods({time : currentTime, duration : 'evening'})
       }
-      // if(timePeriods !== tempTimePeriods){
-      //   console.log(tempTimePeriods)
-      //   setTimePeriods(tempTimePeriods)
-      //   console.log(timePeriods)
-      // }
-      // console.log("finished")
-      // console.log(tempTimePeriods)
-    // }, 1000)
-    // 3600000
-    // return () => clearInterval(interval);
+
   }, [new Date().getHours() != tempTimePeriods.time ? tempTimePeriods : null])
 
   useEffect(() => {
@@ -143,7 +134,6 @@ export default function Home({accessToken, getTrackUri}){
       // setBestSuitSongs(temp)
 
       temp.push(noonSongs[0].seed)
-      // setBestSuitSongs(prevArray => [...prevArray, ...temp])
       temp.push(nightSongs[0].seed)
       setBestSuitSongs(temp);
 

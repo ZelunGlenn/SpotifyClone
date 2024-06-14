@@ -162,16 +162,18 @@ export default function Dashboard({code}){
       
       
 
-      // {/* {
-      //   (p)?
-      //   <div><Playlist playlist = {playList}/></div>
-      //   : 
-      //   <div className='flex-grow-1 my-2' style = {{overflowY: "auto"}}>
-      //     {searchResults.map(track => (
-      //       <TrackSearchResult track={track} key = {track.uri} chooseTrack={chooseTrack}/>
-      //     ))}
-      //   </div>
-      // } */}
+      {/* 
+      {
+        (p)?
+        <div><Playlist playlist = {playList}/></div>
+        : 
+        <div className='flex-grow-1 my-2' style = {{overflowY: "auto"}}>
+          {searchResults.map(track => (
+            <TrackSearchResult track={track} key = {track.uri} chooseTrack={chooseTrack}/>
+          ))}
+        </div>
+      }
+       */}
 
       // {/* <div className='flex-grow-1 my-2' style = {{overflowY: "auto"}}>
       //       {searchResults.map(track => (
