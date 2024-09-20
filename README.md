@@ -2,17 +2,20 @@
 Log in with your Spotify account; Check your recent play; provide you with perfect recommendations; give you a view of your listening habits; Search for your favourite song/artist. But more! it displays users' listening habits and recommends tracks based on their local time!
 
 ## Login
-![Login](https://github.com/user-attachments/assets/64a052ca-266d-412f-a375-e5284d329e8a)
+![Login](https://github.com/user-attachments/assets/c01ea6bd-01fd-4418-8678-ff4c161872ee)
 
-## Recent Play
 
-## Recommendation
+## Recent Play & Recommendation & Player
+![Recommendation   Player   Recent](https://github.com/user-attachments/assets/2fd722df-9022-439f-bfc3-a9e0c296d30a)
 
-## Search & Play
-![Search   Play](https://github.com/user-attachments/assets/ef8f19fd-bead-482e-bb01-9867c40ed800)
+
+## Search
+![Search](https://github.com/user-attachments/assets/4c3fcf89-927b-4c5c-9e3e-60fe7676cc49)
+
 
 ## Library
-![Library](https://github.com/user-attachments/assets/c7fc1fe4-54a0-4acb-823f-c7307e4a1eb8)
+![Library](https://github.com/user-attachments/assets/48b65042-186b-476c-b013-b8ade1a68766)
+
 
 
 ## Listening Habits
