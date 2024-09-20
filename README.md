@@ -19,3 +19,4 @@ Log in with your Spotify account; Check your recent play; provide you with perfe
 
 
 ## Listening Habits
+![Habits](https://github.com/user-attachments/assets/323da7df-0524-4cf4-8953-f5cfe4433c1e)
