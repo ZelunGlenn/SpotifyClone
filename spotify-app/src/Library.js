@@ -25,17 +25,6 @@ export default function Library({accessToken}){
   useEffect(() => {
     if(!accessToken) return
     if(!playerID) return
-    // spotifyApi.getUserPlaylists('31p6wh523i34etnrunaqdkz4etbq')
-    // .then(res => {
-    //   if(res.body.items.length > 0)
-    //   {
-    //     console.log(tracks);
-    //   }
-    //   else{
-    //     setPlayList([])
-
-    //   }
-    // console.log(playerID)
     axios.post('http://localhost:3001/playList', {
       accessToken, playerID
     })

@@ -54,25 +54,6 @@ export default function Habit({accessToken, spotifyApi}){
     setCateSongs(true);
   }, [rencentPlay])
 
-  // useEffect(() => {
-  //   if(!spotifyApi) return
-  //   if(rencentPlay.length <= 0) return
-  //   spotifyApi.getRecommendations({seed_tracks: })
-  // }, [spotifyApi, rencentPlay])
-
-  // useEffect(() => {
-  //   if(morningSongs.length <= 0 && noonSongs.length <= 0 && nightSongs.length <= 0) return
-  //   if(!cateSongs) return
-  //   spotifyApi
-  //   // axios.post('http://localhost:3001/Habit', {
-  //   //   accessToken,
-  //   //   morningSongs
-  //   // })
-  //   //   .then(res => {
-  //   //     console.log(res.data)
-  //   //   })
-
-  // }, [cateSongs])
 
   return (
     <div>

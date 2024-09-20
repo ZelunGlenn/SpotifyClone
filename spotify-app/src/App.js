@@ -2,7 +2,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import {useState, useEffect} from 'react';
 import { Container, Form } from 'react-bootstrap';
 import Login from './Login';
-import Dashboard from './Dashboard';
+// import Dashboard from './Dashboard';
 import { BrowserRouter as Router, Link, Route, Routes} from "react-router-dom";
 import useAuth from './useAuth';
 import SpotifyWebApi from 'spotify-web-api-node';
@@ -16,13 +16,9 @@ import Graph from './Graph';
 import './style.css';
 
 const spotifyApi = new SpotifyWebApi({
-  clientId: "714d0f1e8dca437faeac64fd0b3e6926",
+  clientId: process.env.REACT_APP_SPOTIFY_CLIENT_ID,
 })
 const code = new URLSearchParams(window.location.search).get('code')
-
-// function App() {
-//   return code ? <Dashboard code={code} /> : <Login />
-// }
 
 function App() {
   const accessToken = useAuth(code)
@@ -139,52 +135,11 @@ function App() {
                   <Route path='/Graph' element={<Graph accessToken={accessToken} spotifyApi={spotifyApi}/>}/>
                   {/* <Route path='/Habit' element={<Habit accessToken={accessToken} spotifyApi={spotifyApi}/>}/> */}
             </Routes>
-
-              {/* 04/28 */}
-              {/* <div>
-                  <Form.Control 
-                    type = "search"
-                    placeholder = "Search Songs/Artists"
-                    value = {search}
-                    onChange = {e => setSearch(e.target.value)}
-                  />
-              </div>
-              <div>
-                <div className='flex-grow-1 my-2'>
-                  {searchResults.map(track => (
-                    <TrackSearchResult track={track} key = {track.uri} chooseTrack={chooseTrack}/>
-                  ))}
-                </div>
-              </div> */}
-    
-            {/* change1 */}
             </div>
     
     
           {/* change1 */}
           </div>
-          
-          
-    
-          {/* {
-          //   (p)?
-          //   <div><Playlist playlist = {playList}/></div>
-          //   : 
-          //   <div className='flex-grow-1 my-2' style = {{overflowY: "auto"}}>
-          //     {searchResults.map(track => (
-          //       <TrackSearchResult track={track} key = {track.uri} chooseTrack={chooseTrack}/>
-          //     ))}
-          //   </div>
-          // } */
-          }
-    
-          {/* <div className='flex-grow-1 my-2' style = {{overflowY: "auto"}}>
-          //       {searchResults.map(track => (
-          //         <TrackSearchResult track={track} key = {track.uri} chooseTrack={chooseTrack}/>
-          //       ))}
-          // </div> */
-          }
-    
     
           {/* change1 */}
           <div><Player accessToken={accessToken} trackUri={trackUri}/></div>

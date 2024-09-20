@@ -3,6 +3,8 @@ const cors = require('cors')
 const bodyParser = require("body-parser")
 const spotifyWebApi = require('spotify-web-api-node')
 
+require('dotenv').config({ path: '../.env' })  // Adjust the path if needed
+
 const app = express()
 app.use(cors())
 app.use(bodyParser.json())
@@ -11,8 +13,8 @@ app.post('/refresh', (req,res) =>{
   const refreshToken = req.body.refreshToken
   const spotifyApi = new spotifyWebApi({
     redirectUri: 'http://localhost:3000',
-    clientId: '714d0f1e8dca437faeac64fd0b3e6926',
-    clientSecret: 'ed2971a0051349888cef137231d7f041',
+    clientId: process.env.SPOTIFY_CLIENT_ID,
+    clientSecret: process.env.SPOTIFY_CLIENT_SECRET,
     refreshToken
   })
 
@@ -34,8 +36,8 @@ app.post('/login', (req,res) => {
   const code = req.body.code
   const spotifyApi = new spotifyWebApi({
     redirectUri: 'http://localhost:3000',
-    clientId: '714d0f1e8dca437faeac64fd0b3e6926',
-    clientSecret: 'ed2971a0051349888cef137231d7f041',
+    clientId: process.env.SPOTIFY_CLIENT_ID,
+    clientSecret: process.env.SPOTIFY_CLIENT_SECRET,
   })
 
   spotifyApi
@@ -57,8 +59,8 @@ app.post('/search', (req,res) => {
   const search = req.body.search
   const spotifyApi = new spotifyWebApi({
     redirectUri: 'http://localhost:3000',
-    clientId: '714d0f1e8dca437faeac64fd0b3e6926',
-    clientSecret: 'ed2971a0051349888cef137231d7f041',
+    clientId: process.env.SPOTIFY_CLIENT_ID,
+    clientSecret: process.env.SPOTIFY_CLIENT_SECRET,
   })
 
   spotifyApi.setAccessToken(req.body.accessToken)
@@ -78,8 +80,8 @@ app.post('/search', (req,res) => {
 app.post('/recentPlay', (req,res) => {
   const spotifyApi = new spotifyWebApi({
     redirectUri: 'http://localhost:3000',
-    clientId: '714d0f1e8dca437faeac64fd0b3e6926',
-    clientSecret: 'ed2971a0051349888cef137231d7f041',
+    clientId: process.env.SPOTIFY_CLIENT_ID,
+    clientSecret: process.env.SPOTIFY_CLIENT_SECRET,
   })
   spotifyApi.setAccessToken(req.body.accessToken)
   spotifyApi.getMyRecentlyPlayedTracks({limit: 20})
@@ -98,8 +100,8 @@ app.post('/recentPlay', (req,res) => {
 app.post('/recommendationSong', (req,res) => {
   const spotifyApi = new spotifyWebApi({
     redirectUri: 'http://localhost:3000',
-    clientId: '714d0f1e8dca437faeac64fd0b3e6926',
-    clientSecret: 'ed2971a0051349888cef137231d7f041',
+    clientId: process.env.SPOTIFY_CLIENT_ID,
+    clientSecret: process.env.SPOTIFY_CLIENT_SECRET,
   })
   spotifyApi.setAccessToken(req.body.accessToken)
   spotifyApi.getRecommendations({seed_tracks: req.body.bestSuitSongs})
@@ -118,8 +120,8 @@ app.post('/recommendationSong', (req,res) => {
 app.post('/getUserID', (req, res) => {
   const spotifyApi = new spotifyWebApi({
     redirectUri: 'http://localhost:3000',
-    clientId: '714d0f1e8dca437faeac64fd0b3e6926',
-    clientSecret: 'ed2971a0051349888cef137231d7f041',
+    clientId: process.env.SPOTIFY_CLIENT_ID,
+    clientSecret: process.env.SPOTIFY_CLIENT_SECRET,
   })
   spotifyApi.setAccessToken(req.body.accessToken)
   spotifyApi.getMe()
@@ -136,8 +138,8 @@ app.post('/getUserID', (req, res) => {
 app.post('/playList', (req, res) =>{
   const spotifyApi = new spotifyWebApi({
     redirectUri: 'http://localhost:3000',
-    clientId: '714d0f1e8dca437faeac64fd0b3e6926',
-    clientSecret: 'ed2971a0051349888cef137231d7f041',
+    clientId: process.env.SPOTIFY_CLIENT_ID,
+    clientSecret: process.env.SPOTIFY_CLIENT_SECRET,
   })
   spotifyApi.setAccessToken(req.body.accessToken)
   spotifyApi.getUserPlaylists(req.body.playerID)
@@ -154,8 +156,8 @@ app.post('/playList', (req, res) =>{
 app.post('/songsFeature', (req,res) => {
   const spotifyApi = new spotifyWebApi({
     redirectUri: 'http://localhost:3000',
-    clientId: '714d0f1e8dca437faeac64fd0b3e6926',
-    clientSecret: 'ed2971a0051349888cef137231d7f041',
+    clientId: process.env.SPOTIFY_CLIENT_ID,
+    clientSecret: process.env.SPOTIFY_CLIENT_SECRET,
   })
   spotifyApi.setAccessToken(req.body.accessToken)
   spotifyApi.getAudioFeaturesForTracks(req.body.songs)
@@ -170,24 +172,6 @@ app.post('/songsFeature', (req,res) => {
       res.sendStatus(400)
     })
 })
-
-// app.post('/Habit', (req, res) =>{
-//   const spotifyApi = new spotifyWebApi({
-//     redirectUri: 'http://localhost:3000',
-//     clientId: '714d0f1e8dca437faeac64fd0b3e6926',
-//     clientSecret: 'ed2971a0051349888cef137231d7f041',
-//   })
-//   spotifyApi.setAccessToken(req.body.accessToken)
-//   spotifyApi.getUserPlaylists(req.body.playerID)
-//     .then(data => {
-//       res.json({
-//         track: data.body.items
-//       })
-//     })
-//     .catch((err) =>{
-//       res.sendStatus(400)
-//     })
-// })
 
 app.listen(3001)
 

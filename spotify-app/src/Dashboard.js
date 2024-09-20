@@ -11,7 +11,7 @@ import { Container, Form } from 'react-bootstrap'
 import SpotifyWebApi from 'spotify-web-api-node'
 
 const spotifyApi = new SpotifyWebApi({
-  clientId: "714d0f1e8dca437faeac64fd0b3e6926",
+  clientId: process.env.REACT_APP_SPOTIFY_CLIENT_ID,
 })
 
 export default function Dashboard({code}){
@@ -94,48 +94,23 @@ export default function Dashboard({code}){
         }
       }))
     })
-
-    
-    // (res => {
-    //   setSearchResults(res.body.tracks.items.map(track => {
-    //     const smallestAlbumImage = track.album.images.reduce(
-    //       (smallest, image) => {
-    //         if (image.height < smallest.height) return image
-    //         return smallest
-    //     }, track.album.images[0])
-
-    //     return {
-    //       artist: track.artists[0].name,
-    //       title:track.name,
-    //       uri: track.uri,
-    //       albumUrl: smallestAlbumImage.url
-    //     }
-    //   }))
-    // })
   }, [accessToken])
 
   return (
     // change1
     <Container className='d-flex flex-column py-2 parent' style = {{height:"100vh"}}>
 
-      // {/* change2 */}
-      // {/* <button onClick={clickHandler}>My Play List</button> */}
-
-      {/* temp
-      <div> */}
-
-      // {/* change1 */}
       <div className = "child row h-100"  style = {{overflowY: "auto"}}>
 
-        {/* change1 */}
+
         <div className = "col-3 bg-light">
           <h1>Spotify Clone</h1>
 
         </div>
 
-        {/* change1 */}
+
         <div className = "col-9 bg-info">
-        {/* change1 */}
+
         
           <div>
               <Form.Control 
@@ -160,34 +135,6 @@ export default function Dashboard({code}){
       {/* change1 */}
       </div>
       
-      
-
-      {/* 
-      {
-        (p)?
-        <div><Playlist playlist = {playList}/></div>
-        : 
-        <div className='flex-grow-1 my-2' style = {{overflowY: "auto"}}>
-          {searchResults.map(track => (
-            <TrackSearchResult track={track} key = {track.uri} chooseTrack={chooseTrack}/>
-          ))}
-        </div>
-      }
-       */}
-
-      // {/* <div className='flex-grow-1 my-2' style = {{overflowY: "auto"}}>
-      //       {searchResults.map(track => (
-      //         <TrackSearchResult track={track} key = {track.uri} chooseTrack={chooseTrack}/>
-      //       ))}
-      // </div> */}
-
-
-      // {/* change1 */}
-      {/* <div><Player accessToken={accessToken} trackUri={playingTrack?.uri}/></div> */}
-
-      {/* temp */}
-      {/* </div> */}
-    // {/* change1 */}
     </Container>
   )
 }

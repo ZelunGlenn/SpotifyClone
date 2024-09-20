@@ -18,10 +18,6 @@ export default function useAuth(code){
         setExpiresIn(res.data.expiresIn)
         window.history.pushState({}, null, "/")
       })
-    // // error 1
-    // .catch(() => {
-    //   window.location = '/'
-    // })
   }, [code])
   useEffect(() => {
     if (!refreshToken || !expiresIn) return
